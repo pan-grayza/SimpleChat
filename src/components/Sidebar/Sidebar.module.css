@@ -1,0 +1,7 @@
+.sidebar {
+    position: relative;
+    height: 100%;
+    width: 14rem;
+
+    background-color: rgb(46, 50, 59);
+}

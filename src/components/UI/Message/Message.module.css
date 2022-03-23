@@ -1,0 +1,13 @@
+.gray_circle {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(145, 145, 145);
+}
+.circle {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}

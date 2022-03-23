@@ -1,0 +1,57 @@
+.user_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    padding: 0.75rem;
+    width: 14rem;
+    height: 4rem;
+    transform: translateY(-100%);
+    top: 100%;
+    background-color: rgb(43, 47, 56);
+}
+
+.flex_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.username {
+    margin-left: 0.5rem;
+}
+
+.setting_a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.setting_icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: rgb(176, 180, 190);
+    transition: all 0.25s;
+}
+
+.setting_a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.setting_a:hover .setting_icon {
+    fill: rgb(210, 215, 224);
+}
+
+.circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgb(145, 145, 145);
+}
