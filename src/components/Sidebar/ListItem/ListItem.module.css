@@ -31,8 +31,15 @@
     width: 0;
     height: 3rem;
     margin: 0 0.5rem 0 0;
-    border-radius: 0 0.5rem 0.5rem 0;
-    background-color: rgb(165, 188, 223);
+    transform: scaleY(0);
+    transform-origin: center;
+    border-radius: 0 1rem 1rem 0;
+    background-color: rgb(228, 239, 255);
+}
+.list_item:hover .span_tag {
+    width: 0.35rem;
+    transform: scaleY(0.5);
+    transition: all 0.25s;
 }
 
 .btn {

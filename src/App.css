@@ -49,9 +49,10 @@ body,
 }
 
 .activated_li img {
-    border-radius: 1rem;
+    border-radius: 1rem !important;
 }
 
 .activated_tag {
-    width: 0.5rem !important;
+    width: 0.35rem !important;
+    transform: scaleY(1) !important;
 }
