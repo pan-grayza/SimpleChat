@@ -3,11 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 0.9rem;
 }
 
 html {
     background-color: rgb(58, 64, 73);
-    color: rgb(238, 238, 238);
+    color: rgb(255, 255, 255, 0.8);
     font-family: "Poppins";
 }
 
@@ -30,9 +31,7 @@ body,
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 50%;
-    border: 2px solid rgb(255, 255, 255);
     object-fit: cover;
-    background-color: rgb(145, 145, 145);
 }
 
 /* ListItem */

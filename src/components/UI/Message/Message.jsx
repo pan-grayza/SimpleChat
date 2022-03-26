@@ -1,18 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { formatRelative } from "date-fns"
+import Moment from "moment"
 import classes from "./Message.module.css"
 
 const formatDate = (date) => {
-    let formattedDate = ""
-    if (date) {
-        // Convert the date in words relative to the current date
-        formattedDate = formatRelative(date, new Date())
-        // Uppercase the first letter
-        formattedDate =
-            formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)
-    }
-    return formattedDate
+    return Moment(date).format("DD.MM.YYYY")
 }
 
 const Message = ({
@@ -24,30 +16,30 @@ const Message = ({
     if (!text) return null
 
     return (
-        <div>
+        <div className={classes.message}>
             {photoURL ? (
                 <img
                     src={photoURL}
                     alt=""
                     width={45}
                     height={45}
-                    className={classes.circle}
+                    className={classes.avatar}
                 />
             ) : (
                 <div className={classes.circle}></div>
             )}
-            <div>
-                <div>
+            <div className={classes.main}>
+                <div className={classes.header}>
                     {displayName ? (
-                        <p className="mr-2 text-primary-500">{displayName}</p>
+                        <p className={classes.name}>{displayName}</p>
                     ) : null}
                     {createdAt?.seconds ? (
-                        <span className="text-gray-500 text-xs">
+                        <span className={classes.date}>
                             {formatDate(new Date(createdAt.seconds * 1000))}
                         </span>
                     ) : null}
                 </div>
-                <p>{text}</p>
+                <p className={classes.message_text}>{text}</p>
             </div>
         </div>
     )

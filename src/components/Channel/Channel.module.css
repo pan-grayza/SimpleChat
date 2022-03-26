@@ -1,3 +1,4 @@
-* {
-    font-size: 0.9rem;
+.list_of_messages {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,10 +1,45 @@
-.gray_circle {
+.message {
+    display: flex;
+    flex-direction: row;
     position: relative;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: rgb(145, 145, 145);
+    width: 100%;
+    padding: 1rem;
 }
+
+.main {
+    margin: 0 0 0 1rem;
+}
+
+.avatar {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+}
+
+.header {
+    position: relative;
+    margin: 0 0 0.5rem 0;
+    height: 0.95rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-25%);
+}
+
+.date {
+    margin: 0 0 0 0.5rem;
+    position: realtive;
+    font-size: 0.75rem;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
 .circle {
     position: relative;
     width: 45px;

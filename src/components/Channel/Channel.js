@@ -53,7 +53,7 @@ const Channel = ({ user = null }) => {
 
     return (
         <div>
-            <ul>
+            <ul className={classes.list_of_messages}>
                 {messages
                     ?.sort((first, second) =>
                         first?.createdAt?.seconds <= second?.createdAt?.seconds
