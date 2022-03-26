@@ -26,9 +26,37 @@ body,
     flex-direction: row;
 }
 
-.gray_circle {
-    width: 45px;
-    height: 45px;
+.circle {
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+    object-fit: cover;
     background-color: rgb(145, 145, 145);
+}
+
+/* ListItem */
+.activated_li * {
+    transition: all 0.25s;
+}
+.activated_li {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0.5rem 0.5rem 0rem;
+}
+
+.activated_li img {
+    border-radius: 1rem;
+}
+
+.activated_li::before {
+    content: "";
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 0.5rem;
+    height: 3rem;
+    transform-origin: center;
+    margin: 0 0.5rem 0 -1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: rgb(165, 188, 223);
 }

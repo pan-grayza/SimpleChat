@@ -1,7 +1,21 @@
 .sidebar {
     position: relative;
     height: 100%;
-    width: 14rem;
+    width: 15rem;
 
     background-color: rgb(46, 50, 59);
+}
+
+.list_of_chats {
+    list-style: none;
+}
+
+.list_checkbox {
+    position: absolute;
+    left: 0;
+    margin-top: -0.5rem;
+    height: 4rem;
+    width: 100%;
+    cursor: pointer;
+    /* opacity: 0; */
 }

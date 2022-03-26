@@ -28,13 +28,13 @@ const Message = ({
             {photoURL ? (
                 <img
                     src={photoURL}
-                    alt="Avatar"
+                    alt=""
                     width={45}
                     height={45}
                     className={classes.circle}
                 />
             ) : (
-                <div className={classes.gray_circle}></div>
+                <div className={classes.circle}></div>
             )}
             <div>
                 <div>
