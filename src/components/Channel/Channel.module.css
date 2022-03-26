@@ -2,3 +2,31 @@
     display: flex;
     flex-direction: column;
 }
+
+.text_form {
+    position: fixed;
+    top: 100%;
+    padding: 0.75rem;
+    margin: -1.5rem 1.5rem 0 1.5rem;
+    width: calc(calc(100% - 15rem) - 3rem);
+    transform: translateY(-100%);
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
+
+.text_input {
+    width: 100%;
+
+    background: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    border: none;
+}
+.text_input:focus {
+    outline: none;
+}
+
+.send_button {
+    display: none;
+}

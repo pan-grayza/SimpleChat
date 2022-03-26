@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
 import classes from "./Channel.module.css"
-import PropTypes from "prop-types"
 import firebase from "firebase/compat/app"
 import { useFirestoreQuery } from "../../hooks/useFirestoreQuery"
 // Components
@@ -66,15 +65,20 @@ const Channel = ({ user = null }) => {
                         </li>
                     ))}
             </ul>
-            <form onSubmit={handleOnSubmit}>
+            <form onSubmit={handleOnSubmit} className={classes.text_form}>
                 <input
                     ref={inputRef}
                     type="text"
                     value={newMessage}
                     onChange={handleOnChange}
                     placeholder="Type message here"
+                    className={classes.text_input}
                 ></input>
-                <button type="submit" disabled={!newMessage}>
+                <button
+                    className={classes.send_button}
+                    type="submit"
+                    disabled={!newMessage}
+                >
                     Send
                 </button>
             </form>

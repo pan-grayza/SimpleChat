@@ -12,6 +12,11 @@ html {
     font-family: "Poppins";
 }
 
+h1,
+h2 {
+    color: rgb(255, 255, 255, 1);
+}
+
 html,
 body,
 #root,
