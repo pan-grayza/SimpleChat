@@ -51,7 +51,7 @@ const Channel = ({ user = null }) => {
     }
 
     return (
-        <div>
+        <div className={classes.channel}>
             <ul className={classes.list_of_messages}>
                 {messages
                     ?.sort((first, second) =>
@@ -65,23 +65,25 @@ const Channel = ({ user = null }) => {
                         </li>
                     ))}
             </ul>
-            <form onSubmit={handleOnSubmit} className={classes.text_form}>
-                <input
-                    ref={inputRef}
-                    type="text"
-                    value={newMessage}
-                    onChange={handleOnChange}
-                    placeholder="Type message here"
-                    className={classes.text_input}
-                ></input>
-                <button
-                    className={classes.send_button}
-                    type="submit"
-                    disabled={!newMessage}
-                >
-                    Send
-                </button>
-            </form>
+            <div className={classes.text_form_container}>
+                <form onSubmit={handleOnSubmit} className={classes.text_form}>
+                    <input
+                        ref={inputRef}
+                        type="text"
+                        value={newMessage}
+                        onChange={handleOnChange}
+                        placeholder="Type message here"
+                        className={classes.text_input}
+                    ></input>
+                    <button
+                        className={classes.send_button}
+                        type="submit"
+                        disabled={!newMessage}
+                    >
+                        Send
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
