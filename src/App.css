@@ -56,3 +56,9 @@ body,
     width: 0.35rem !important;
     transform: scaleY(1) !important;
 }
+
+/* Closed Modal_Settings */
+
+.opened_modal {
+    display: flex !important;
+}
