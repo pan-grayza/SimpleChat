@@ -35,6 +35,11 @@
     cursor: pointer;
     transition: all 0.25s;
 }
+/* With hover effect is better */
+.setting_a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+}
 
 .setting_icon {
     width: 1.75rem;
@@ -43,13 +48,36 @@
     transition: all 0.25s;
 }
 
-.setting_a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+.tip {
+    content: "Settings";
+    position: absolute;
+    display: flex;
+    padding: 0.25rem;
+    top: 3.5rem;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(46, 50, 59);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    transform: scale(0) translateY(-2rem);
+    transform-origin: top center;
+    transition: all 0.25s;
 }
+/* Hover only on PC */
+@media (hover: hover) and (pointer: fine) {
+    .setting_a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+    }
+    .setting_a:hover .tip {
+        transform: scale(1) translateY(0);
+    }
 
-.setting_a:hover .setting_icon {
-    fill: rgb(210, 215, 224);
+    .setting_a:hover .setting_icon {
+        fill: rgb(210, 215, 224);
+    }
 }
 
 .circle {

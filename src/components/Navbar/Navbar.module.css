@@ -1,0 +1,77 @@
+.navbar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    height: 100%;
+    width: 100%;
+
+    background-color: rgb(34, 37, 43);
+}
+
+.setting_a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+/* With hover effect is better */
+.setting_a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.setting_icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: rgb(176, 180, 190);
+    transition: all 0.25s;
+}
+
+.tip {
+    content: "Settings";
+    position: absolute;
+    display: flex;
+    padding: 0.25rem;
+    top: 3.5rem;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(46, 50, 59);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    transform: scale(0) translateY(-2rem);
+    transform-origin: top center;
+    transition: all 0.25s;
+}
+/* Hover only on PC */
+@media (hover: hover) and (pointer: fine) {
+    .setting_a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+    }
+    .setting_a:hover .tip {
+        transform: scale(1) translateY(0);
+        z-index: 1000;
+    }
+
+    .setting_a:hover .setting_icon {
+        fill: rgb(210, 215, 224);
+    }
+}
+
+.circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}

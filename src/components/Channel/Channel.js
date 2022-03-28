@@ -3,7 +3,6 @@ import classes from "./Channel.module.css"
 import firebase from "firebase/compat/app"
 import { useFirestoreQuery } from "../../hooks/useFirestoreQuery"
 // Components
-import Navbar from "../Navbar/Navbar"
 import Message from "../UI/Message/Message"
 
 const Channel = ({ user = null }) => {

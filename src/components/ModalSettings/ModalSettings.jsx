@@ -2,6 +2,7 @@ import React from "react"
 import classes from "./ModalSettings.module.css"
 
 import firebase from "firebase/compat/app"
+import { useAuthState } from "../../hooks/useAuthState"
 import { useDarkMode } from "../../hooks/useDarkMode"
 
 const MoonIcon = (props) => (
@@ -31,6 +32,8 @@ const SunIcon = (props) => (
 )
 
 const ModalSettings = () => {
+    const { user, initializing } = useAuthState(firebase.auth())
+
     const [darkMode, setDarkMode] = useDarkMode()
     const ThemeIcon = darkMode ? SunIcon : MoonIcon
 
@@ -49,7 +52,23 @@ const ModalSettings = () => {
     return (
         <div id="setting_modal" className={classes.modal_container}>
             <div className={classes.modal_window}>
-                <div></div>
+                <div>
+                    <div className={classes.flex_row}>
+                        {user.photoURL ? (
+                            <img
+                                src={user.photoURL}
+                                width={45}
+                                height={45}
+                                className={classes.circle}
+                                alt=""
+                            />
+                        ) : (
+                            <div className={classes.gray_circle}></div>
+                        )}
+
+                        <h2 className={classes.username}>{user.displayName}</h2>
+                    </div>
+                </div>
                 <div className={classes.right_section}>
                     <button
                         onClick={HandleClose}

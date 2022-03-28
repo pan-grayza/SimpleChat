@@ -9,8 +9,12 @@
     display: flex;
     flex-direction: row;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
+    width: 100%;
     height: 4rem;
+    border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+
     cursor: pointer;
     transition: all 0.25s;
 }
@@ -19,10 +23,6 @@
     flex-direction: column;
 
     margin-left: 0.5rem;
-}
-
-.list_item:hover .circle {
-    border-radius: 1rem;
 }
 
 .span_tag {
@@ -35,10 +35,6 @@
     transform-origin: center;
     border-radius: 0 1rem 1rem 0;
     background-color: rgb(228, 239, 255);
-}
-.list_item:hover .span_tag {
-    width: 0.35rem;
-    transform: scaleY(0.5);
     transition: all 0.25s;
 }
 
@@ -51,4 +47,15 @@
     background: none;
     cursor: pointer;
     border: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .list_item:hover .span_tag {
+        width: 0.35rem;
+        transform: scaleY(0.5);
+        transition: all 0.25s;
+    }
+    .list_item:hover .circle {
+        border-radius: 1rem;
+    }
 }

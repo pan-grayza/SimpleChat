@@ -1,7 +1,7 @@
 import React from "react"
+import classes from "./Message.module.css"
 import PropTypes from "prop-types"
 import Moment from "moment"
-import classes from "./Message.module.css"
 
 const formatDate = (date) => {
     return Moment(date).format("DD.MM.YYYY")

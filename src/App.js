@@ -1,15 +1,13 @@
-import React from "react"
+import React, { lazy, Suspense } from "react"
 import "./App.css"
+import classes from "./SignUpPage.module.css"
 //UI
 import Loader from "./components/UI/Loader/Loader"
 
 //Components
-import Channel from "./components/Channel/Channel"
-import Sidebar from "./components/Sidebar/Sidebar"
 
 //Hooks
 import { useAuthState } from "./hooks/useAuthState"
-import { useDarkMode } from "./hooks/useDarkMode"
 
 //Firebase deps
 import firebase from "firebase/compat/app"
@@ -31,11 +29,11 @@ const db = firebase.firestore
 
 function App() {
     const { user, initializing } = useAuthState(firebase.auth())
-    const [darkMode, setDarkMode] = useDarkMode()
+    // const [darkMode, setDarkMode] = useDarkMode()
 
-    const brandLogo = darkMode
-        ? `${process.env.PUBLIC_URL}/logo_white.svg`
-        : `${process.env.PUBLIC_URL}/logo.svg`
+    const Sidebar = lazy(() => import("./components/Sidebar/Sidebar"))
+    const Channel = lazy(() => import("./components/Channel/Channel"))
+    const Navbar = lazy(() => import("./components/Navbar/Navbar"))
 
     const signInWithGoogle = async () => {
         // Retrieve Google provider object
@@ -60,28 +58,30 @@ function App() {
         }
     }
 
-    //if (user) return <Channel user={user} />
-
     return (
         <div className="screen">
             {user ? (
                 <div className="app">
-                    <Sidebar />
-                    {/* <Button onClick={signOut}>Sign out</Button> */}
-                    <Channel user={user} db={db} />
+                    <Suspense fallback={Loader}>
+                        <Navbar />
+                        <div className="main">
+                            <Sidebar />
+                            <Channel user={user} db={db} />
+                        </div>
+                    </Suspense>
                 </div>
             ) : (
-                <div className="signUp_container">
-                    <div className="signUp_content">
-                        <div className="signUp_text">
+                <div className={classes.signUp_container}>
+                    <div className={classes.signUp_content}>
+                        <div className={classes.signUp_text}>
                             <h1>Welcome!</h1>
                         </div>
                         <button
                             onClick={signInWithGoogle}
-                            className="signUp_btn"
+                            className={classes.signUp_btn}
                         >
                             <svg
-                                className="google_icon"
+                                className={classes.google_icon}
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >

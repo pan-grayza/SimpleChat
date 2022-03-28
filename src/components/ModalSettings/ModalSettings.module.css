@@ -7,20 +7,38 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    display: none;
+    transform: scale(1.25);
+    background-color: rgb(58, 64, 73);
+    opacity: 0;
+    z-index: -100;
+    transition: all 0.5s;
 }
 
 .modal_window {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 65%;
-    height: 75%;
+    width: 65vw;
+    height: 75vh;
     border-radius: 1rem;
     background-color: rgb(58, 64, 73);
     transition: all 0.5s;
+}
+.flex_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.username {
+    color: rgba(255, 255, 255, 1);
+    margin-left: 0.75rem;
+}
+
+.circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
 }
 
 .right_section {
@@ -44,9 +62,6 @@
     cursor: pointer;
     transition: all 0.25s;
 }
-.btn_in_right_section:hover {
-    background: rgb(255, 255, 255, 0.1);
-}
 
 .signOut_btn {
     display: flex;
@@ -65,12 +80,17 @@
     color: rgb(255, 255, 255, 0.8);
 }
 
-.signOut_btn:hover {
-    background: rgb(255, 255, 255, 0.1);
-}
-
 .icon {
     width: 2rem;
     height: 2rem;
     fill: rgb(255, 255, 255, 0.8);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .signOut_btn:hover {
+        background: rgb(255, 255, 255, 0.1);
+    }
+    .btn_in_right_section:hover {
+        background: rgb(255, 255, 255, 0.1);
+    }
 }
