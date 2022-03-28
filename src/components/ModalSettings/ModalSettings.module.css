@@ -63,7 +63,6 @@
 .signOut_btn p {
     margin-right: 0.5rem;
     color: rgb(255, 255, 255, 0.8);
-    font-family: "Poppins";
 }
 
 .signOut_btn:hover {

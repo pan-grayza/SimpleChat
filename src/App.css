@@ -1,15 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700&display=swap");
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
 }
 
 html {
     background-color: rgb(58, 64, 73);
     color: rgb(255, 255, 255, 0.8);
-    font-family: "Poppins";
+    font-family: "Nunito";
 }
 
 h1,
@@ -25,6 +26,10 @@ body,
     height: 100%;
 }
 
+button {
+    font-family: "Nunito";
+}
+
 .app {
     height: 100%;
     width: 100%;
@@ -37,6 +42,58 @@ body,
     height: 2.75rem;
     border-radius: 50%;
     object-fit: cover;
+}
+
+/* SignUp Page */
+
+.signUp_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    padding: 1rem;
+    top: 50%;
+    left: 50%;
+    width: min(90%, 22rem);
+    height: min(45%, 30rem);
+    transform: translateX(-50%) translateY(-50%);
+    background-color: rgb(255, 255, 255, 0.1);
+    box-shadow: 3px 3px 20px rgb(0, 0, 0, 0.4);
+    border-radius: 1rem;
+}
+
+.signUp_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: min(20rem, 100%);
+}
+
+.signUp_text h1 {
+    font-size: 2rem;
+}
+
+.signUp_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 3rem;
+    width: 100%;
+    background-color: #fff;
+    letter-spacing: 0.05rem;
+    color: hsla(0, 0%, 0%, 0.7);
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.google_icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 0.5rem;
 }
 
 /* Activated ListItem */
