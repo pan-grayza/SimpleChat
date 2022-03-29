@@ -4,20 +4,103 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.75rem;
     height: 100%;
     width: 100%;
 
     background-color: rgb(34, 37, 43);
 }
 
+.menu_toggle {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar_burger {
+    display: flex;
+    flex-direction: column;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+.sidebar_checkbox {
+    position: absolute;
+    visibility: collapse;
+}
+
+/* With hover effect is better */
+
+.sidebar_burger:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Burger */
+
+.slice_1,
+.slice_2,
+.slice_3 {
+    position: relative;
+    padding: 0.05rem;
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 1rem;
+    z-index: 100;
+    pointer-events: none;
+    /* box-shadow: 5px 5px 5px black; */
+    transition: all 0.25s;
+}
+
+.slice_1 {
+    margin: 25% 0% 0% 15%;
+    width: 70%;
+}
+
+.slice_2 {
+    padding: 0.075rem;
+    margin: 20% 0% 0% 15%;
+    width: 50%;
+}
+
+.slice_3 {
+    margin: 20% 0% 0% 15%;
+    width: 70%;
+}
+
+.sidebar_burger:hover ~ .slice_1 {
+    width: 30%;
+    transform: rotate(45deg);
+    background-color: hsl(0, 0%, 100%);
+}
+
+.sidebar_burger:hover ~ .slice_2 {
+    width: 80%;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.sidebar_burger:hover ~ .slice_3 {
+    width: 30%;
+    transform: rotate(-45deg);
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* Settings */
 .setting_a {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 0.5rem;
     background: none;
     border: none;
@@ -38,11 +121,11 @@
 }
 
 .tip {
-    content: "Settings";
     position: absolute;
     display: flex;
     padding: 0.25rem;
     top: 3.5rem;
+    left: inherit;
     width: fit-content;
     height: fit-content;
     background-color: rgb(46, 50, 59);
@@ -53,6 +136,7 @@
     transform: scale(0) translateY(-2rem);
     transform-origin: top center;
     transition: all 0.25s;
+    z-index: 1000;
 }
 /* Hover only on PC */
 @media (hover: hover) and (pointer: fine) {
@@ -61,6 +145,11 @@
         box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
     }
     .setting_a:hover .tip {
+        transform: scale(1) translateY(0);
+        z-index: 1000;
+    }
+    .sidebar_burger:hover .tip {
+        margin: -0.6rem 0 0 -0.27rem;
         transform: scale(1) translateY(0);
         z-index: 1000;
     }

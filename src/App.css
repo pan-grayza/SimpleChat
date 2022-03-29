@@ -104,6 +104,19 @@ button {
     margin-right: 0.5rem;
 }
 
+/* SideBar Checkbox */
+
+/* .sidebar_burger_to_close,
+.sidebar_burger_to_close * {
+    transform: rotate(180deg);
+    background-color: black;
+} */
+
+.opened_sidebar {
+    position: absolute !important;
+    transform: translateX(0) !important;
+}
+
 /* Activated ListItem */
 .activated_button * {
     transition: all 0.25s;

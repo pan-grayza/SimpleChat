@@ -1,9 +1,14 @@
 .sidebar {
-    position: relative;
+    position: absolute;
+    top: 4rem;
+    left: 0;
     height: 100%;
-    width: 15rem;
+    width: 18rem;
+    transform: translateX(-100%);
 
     background-color: rgb(46, 50, 59);
+    transition: all 0.25s;
+    z-index: 10;
 }
 
 .list_of_chats {
