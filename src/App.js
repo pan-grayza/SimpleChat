@@ -70,13 +70,11 @@ function App() {
         <div className="screen">
             {user ? (
                 <div className="app">
-                    <Suspense fallback={Loader}>
+                    <Suspense className="suspense" fallback={Loader}>
                         <Navbar />
-                        <div className="main">
-                            <ModalSettings />
-                            <Sidebar />
-                            <Channel user={user} db={db} />
-                        </div>
+                        <ModalSettings />
+                        <Sidebar />
+                        <Channel user={user} db={db} />
                     </Suspense>
                 </div>
             ) : (

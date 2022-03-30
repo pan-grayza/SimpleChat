@@ -7,10 +7,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    transform: scale(1.25);
+    transform: scale(0.95) translateY(-3rem);
     background-color: rgb(58, 64, 73);
     opacity: 0;
     z-index: -100;
+    overflow: hidden;
     transition: all 0.5s;
 }
 

@@ -1,12 +1,18 @@
+::placeholder {
+    color: rgb(255, 255, 255, 0.3);
+    opacity: 1;
+}
+
 .channel {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .list_of_messages {
     position: relative;
-    height: calc(100% - 6rem);
+    height: calc(100% - 9rem);
+    width: 100vw;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
