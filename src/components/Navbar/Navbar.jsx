@@ -35,7 +35,9 @@ const Navbar = () => {
                     <span className={classes.slice_1}></span>
                     <span className={classes.slice_2}></span>
                     <span className={classes.slice_3}></span>
-                    <span className={classes.tip}>Chats</span>
+                    <span id="tip" className={classes.tip}>
+                        Chats
+                    </span>
                 </button>
 
                 <input

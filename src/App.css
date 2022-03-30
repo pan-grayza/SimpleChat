@@ -106,11 +106,18 @@ button {
 
 /* SideBar Checkbox */
 
-/* .sidebar_burger_to_close,
-.sidebar_burger_to_close * {
+.sidebar_burger_to_close {
     transform: rotate(180deg);
     background-color: black;
-} */
+}
+
+.sidebar_burger_to_close #tip {
+    transform: rotate(180deg) translateY(200%) scale(0);
+    z-index: 1000;
+}
+.sidebar_burger_to_close:hover #tip {
+    transform: rotate(180deg) translateY(200%) scale(1);
+}
 
 .opened_sidebar {
     position: absolute !important;
