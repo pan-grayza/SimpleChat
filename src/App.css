@@ -112,11 +112,12 @@ button {
 }
 
 .sidebar_burger_to_close #tip {
+    visibility: collapse;
     transform: rotate(180deg) translateY(200%) scale(0);
-    z-index: 1000;
+    z-index: 100;
 }
 .sidebar_burger_to_close:hover #tip {
-    transform: rotate(180deg) translateY(200%) scale(1);
+    visibility: collapse;
 }
 
 .opened_sidebar {
@@ -145,7 +146,7 @@ button {
 /* Closed Modal_Settings */
 
 .opened_modal {
-    z-index: 100 !important;
+    z-index: 10000 !important;
     transform: scale(1) !important;
     opacity: 1 !important;
 }

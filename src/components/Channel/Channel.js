@@ -7,7 +7,19 @@ import Message from "../UI/Message/Message"
 
 const Channel = ({ user = null }) => {
     const db = firebase.firestore()
-    const messagesRef = db.collection("messages")
+
+    let currentChat
+    let messagesRef = db.collection("messages")
+    const SidebarToApp = (ChatIDFromChild) => {
+        currentChat = ChatIDFromChild
+        console.log(currentChat)
+        if (currentChat == 1) {
+            messagesRef = db.collection("messages")
+        } else if (currentChat == 2) {
+            messagesRef = db.collection("secondary_chat")
+        }
+    }
+
     const messages = useFirestoreQuery(
         messagesRef.orderBy("createdAt", "desc").limit(100)
     )

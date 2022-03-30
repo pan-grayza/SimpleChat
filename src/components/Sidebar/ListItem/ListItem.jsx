@@ -1,9 +1,14 @@
 import React, { useState } from "react"
 import classes from "./ListItem.module.css"
 
-const ListItem = ({ src, checked = false, h2 = "", p = "", id = null }) => {
-    const [currentChat, setCurrentChat] = useState()
-
+const ListItem = ({
+    src,
+    checked = false,
+    h2 = "",
+    p = "",
+    id = null,
+    childToParent,
+}) => {
     const HandleClick = (e) => {
         const button = document.querySelector(`#button_${id}`)
         const ul = document.querySelector("#list_of_chats")
@@ -17,13 +22,8 @@ const ListItem = ({ src, checked = false, h2 = "", p = "", id = null }) => {
         Array.from(allSpans).forEach((span) => {
             span.classList.remove("activated_tag")
         })
-        const target = e.target
-        if (target) {
-            button.classList.add("activated_button")
-            span.classList.add("activated_tag")
-
-            setCurrentChat(id)
-        }
+        button.classList.add("activated_button")
+        span.classList.add("activated_tag")
     }
 
     return (

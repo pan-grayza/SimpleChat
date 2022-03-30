@@ -17,8 +17,6 @@ const Navbar = () => {
         }
     }
 
-    const ModalSettings = lazy(() => import("../ModalSettings/ModalSettings"))
-
     const HandleOpenModal = () => {
         const modal = document.querySelector("#setting_modal")
         modal.classList.add("opened_modal")
@@ -59,9 +57,6 @@ const Navbar = () => {
                 </svg>
                 <span className={classes.tip}>Settings</span>
             </button>
-            <Suspense>
-                <ModalSettings />
-            </Suspense>
         </div>
     )
 }

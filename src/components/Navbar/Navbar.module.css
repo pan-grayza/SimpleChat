@@ -5,11 +5,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem;
-    height: 100%;
     width: 100%;
 
     background-color: rgb(34, 37, 43);
-    z-index: 100;
+    z-index: 10;
 }
 
 .menu_toggle {
@@ -148,6 +147,7 @@
     transform: scale(0) translateY(-2rem);
     transform-origin: top center;
     transition: all 0.25s;
+    transition: rotate 0s;
     z-index: 1000;
 }
 /* Hover only on PC */

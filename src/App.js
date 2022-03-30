@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"
+import React, { useState, lazy, Suspense, useEffect } from "react"
 import "./App.css"
 import classes from "./SignUpPage.module.css"
 //UI
@@ -31,9 +31,17 @@ function App() {
     const { user, initializing } = useAuthState(firebase.auth())
     // const [darkMode, setDarkMode] = useDarkMode()
 
-    const Sidebar = lazy(() => import("./components/Sidebar/Sidebar"))
     const Channel = lazy(() => import("./components/Channel/Channel"))
     const Navbar = lazy(() => import("./components/Navbar/Navbar"))
+    const Sidebar = lazy(() => import("./components/Sidebar/Sidebar"))
+    const ModalSettings = lazy(() =>
+        import("./components/ModalSettings/ModalSettings")
+    )
+
+    // const AppToChannel = () => {
+    //     setCurrentChat(currentChatFromChild)
+    //     return currentChat
+    // }
 
     const signInWithGoogle = async () => {
         // Retrieve Google provider object
@@ -65,6 +73,7 @@ function App() {
                     <Suspense fallback={Loader}>
                         <Navbar />
                         <div className="main">
+                            <ModalSettings />
                             <Sidebar />
                             <Channel user={user} db={db} />
                         </div>
