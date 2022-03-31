@@ -147,7 +147,6 @@
     transform: scale(0) translateY(-2rem);
     transform-origin: top center;
     transition: all 0.25s;
-    transition: rotate 0s;
     z-index: 1000;
 }
 /* Hover only on PC */

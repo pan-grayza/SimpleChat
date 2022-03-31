@@ -52,21 +52,24 @@ const ModalSettings = () => {
     return (
         <div id="setting_modal" className={classes.modal_container}>
             <div className={classes.modal_window}>
-                <div>
+                <div className={classes.account_settings}>
+                    <div className={classes.banner}></div>
                     <div className={classes.flex_row}>
-                        {user.photoURL ? (
-                            <img
-                                src={user.photoURL}
-                                width={45}
-                                height={45}
-                                className={classes.circle}
-                                alt=""
-                            />
-                        ) : (
-                            <div className={classes.gray_circle}></div>
-                        )}
+                        <div>
+                            <div className={classes.circle_user_img}>
+                                <img
+                                    src={user.photoURL}
+                                    className={classes.user_img}
+                                    alt=""
+                                />
+                            </div>
+                            <span className={classes.online_circle}></span>
+                        </div>
 
-                        <h2 className={classes.username}>{user.displayName}</h2>
+                        <div className={classes.username}>
+                            <h2>{user.displayName}</h2>
+                            <p className={classes.uid}>uid: {user.uid}</p>
+                        </div>
                     </div>
                 </div>
                 <div className={classes.right_section}>
