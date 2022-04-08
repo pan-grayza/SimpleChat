@@ -17,7 +17,6 @@ const Channel = ({ user = null }) => {
     const [newMessage, setNewMessage] = useState("")
 
     const inputRef = useRef()
-    const bottomListRef = useRef()
 
     const { uid, displayName, photoURL } = user
 
@@ -37,6 +36,68 @@ const Channel = ({ user = null }) => {
         textForm.classList.add(classes.text_form_activated)
     }
 
+    // const trackScrolling = () => {
+    //     const listOfMessages = document.querySelector("#list_of_messages")
+    //     const bottom =
+    //         Math.ceil(listOfMessages.innerHeight + listOfMessages.scrollY) >=
+    //         listOfMessages.scrollHeight
+
+    //     if (listOfMessages) {
+    //         console.log("List detected")
+    //     }
+    //     if (bottom) {
+    //         console.log("bottom reached")
+    //     }
+    // }
+
+    // const handleScroll = (e) => {
+    //     const listOfMessages = document.querySelector("#list_of_messages")
+    //     const bottom =
+    //         listOfMessages.getBoundingClientRect().bottom >=
+    //         listOfMessages.scrollHeight
+
+    //     if (bottom) {
+    //         console.log("at the bottom")
+    //     }
+    // }
+    // React.useEffect(() => {
+    //     window.addEventListener("scroll", handleScroll, {
+    //         passive: true,
+    //     })
+
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll)
+    //     }
+    // }, [])
+
+    const handleScroll = () => {
+        console.log("scrolling")
+        const bottom =
+            Math.ceil(window.innerHeight + window.scrollY) >=
+            document.documentElement.scrollHeight
+
+        if (bottom) {
+            console.log("at the bottom")
+        }
+    }
+    React.useEffect(() => {
+        window.addEventListener("scroll", handleScroll, {
+            passive: true,
+        })
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
+
+    const scrollToBottom = () => {
+        const listOfMessages = document.querySelector("#list_of_messages")
+        listOfMessages.scrollTo({
+            top: listOfMessages.scrollHeight,
+            behavior: "smooth",
+        })
+    }
+
     const handleOnSubmit = (e) => {
         e.preventDefault()
 
@@ -53,13 +114,17 @@ const Channel = ({ user = null }) => {
             // Clear input field
             setNewMessage("")
             // Scroll down to the bottom of the list
-            bottomListRef.current.scrollIntoView({ behavior: "smooth" })
+            scrollToBottom()
         }
     }
 
     return (
         <div className={classes.channel}>
-            <ul className={classes.list_of_messages}>
+            <ul
+                id="list_of_messages"
+                // onScroll={trackScrolling}
+                className={classes.list_of_messages}
+            >
                 {messages
                     ?.sort((first, second) =>
                         first?.createdAt?.seconds <= second?.createdAt?.seconds
@@ -72,6 +137,17 @@ const Channel = ({ user = null }) => {
                         </li>
                     ))}
             </ul>
+            <button
+                onClick={scrollToBottom}
+                className={classes.scroll_down_btn}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M17 10c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l5 5c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3z" />
+                    <path d="M7 10c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-5 5c-.2.2-.4.3-.7.3z" />
+                    <path d="M12 21c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1s1 .4 1 1v16c0 .6-.4 1-1 1z" />
+                </svg>
+                <h1 className="invisible_btn_text">Scroll down</h1>
+            </button>
             <div className={classes.text_form_container}>
                 <form
                     onSubmit={handleOnSubmit}
@@ -97,6 +173,7 @@ const Channel = ({ user = null }) => {
                         <path fill="none" d="M0 0h24v24H0V0z" />
                         <path d="M3.4 20.4l17.45-7.48c.81-.35.81-1.49 0-1.84L3.4 3.6c-.66-.29-1.39.2-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z" />
                     </svg>
+                    <h1 className="invisible_btn_text">Send</h1>
                 </button>
             </div>
         </div>

@@ -29,6 +29,10 @@ body,
     overflow: hidden;
 }
 
+.invisible_btn_text {
+    visibility: collapse;
+}
+
 button {
     font-family: "Nunito";
 }

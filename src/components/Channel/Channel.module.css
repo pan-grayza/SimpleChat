@@ -6,16 +6,34 @@
 .channel {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: calc(100% - 4rem);
 }
 
 .list_of_messages {
     position: relative;
-    height: calc(100% - 9rem);
+    height: calc(100% - 5rem);
     width: 100vw;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+}
+
+.scroll_down_btn {
+    position: absolute;
+    top: calc(100vh - 13rem);
+    left: calc(100vw - 4.65rem);
+    padding: 0.2rem 0.2rem 0.2rem 0.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+.scroll_down_btn svg {
+    fill: rgb(71, 113, 168);
+    transform: rotate(180deg);
+    pointer-events: none;
 }
 
 .text_form_container {
@@ -53,7 +71,7 @@
     visibility: collapse;
     transform: translateX(115vw);
     z-index: 1000;
-    padding: 0.4rem 0.3rem 0.3rem 0.5rem;
+    padding: 0.45rem 0.3rem 0.3rem 0.5rem;
 }
 
 .send_button svg {
