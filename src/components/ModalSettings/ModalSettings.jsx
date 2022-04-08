@@ -73,10 +73,7 @@ const ModalSettings = () => {
                     </div>
                 </div>
                 <div className={classes.right_section}>
-                    <button
-                        onClick={HandleClose}
-                        className={classes.btn_in_right_section}
-                    >
+                    <button onClick={HandleClose} className={classes.close_btn}>
                         <svg
                             className={classes.icon}
                             xmlns="http://www.w3.org/2000/svg"

@@ -7,7 +7,7 @@
     padding: 0.75rem;
     width: 100%;
 
-    background-color: rgb(34, 37, 43);
+    background-color: rgb(48, 53, 61);
     z-index: 10;
 }
 
@@ -102,6 +102,14 @@
     background-color: hsl(0, 0%, 0%);
     transform: rotate(180deg);
     transition: rotate 0s;
+}
+
+.title {
+    position: absolute;
+    left: min(25%, 7rem);
+}
+.title h1 {
+    font-size: 1rem;
 }
 
 /* Settings */

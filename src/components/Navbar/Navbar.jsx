@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from "react"
+import React from "react"
 import classes from "./Navbar.module.css"
 
 const Navbar = () => {
@@ -43,6 +43,9 @@ const Navbar = () => {
                     className={classes.sidebar_checkbox}
                     type="checkbox"
                 ></input>
+            </div>
+            <div className={classes.title}>
+                <h1>SimpleChat</h1>
             </div>
 
             <label

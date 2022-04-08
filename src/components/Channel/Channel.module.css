@@ -33,7 +33,7 @@
     margin: 0.1rem 1.5rem 0 1.5rem;
     width: calc(100% - 3rem);
 
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(48, 54, 61);
     border-radius: 0.5rem;
 }
 
@@ -50,5 +50,33 @@
 }
 
 .send_button {
-    display: none;
+    visibility: collapse;
+    transform: translateX(115vw);
+    z-index: 1000;
+    padding: 0.4rem 0.3rem 0.3rem 0.5rem;
+}
+
+.send_button svg {
+    fill: white;
+}
+
+.send_button_activated {
+    visibility: visible;
+    margin: 0.25rem 0 0 calc(100% - 3rem);
+    transform: translateX(0);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(71, 113, 168);
+    opacity: 1;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.25s;
+}
+
+.text_form_activated {
+    width: calc(100% - 4.5rem);
+    margin-left: 1rem;
+    transition: all 0.25s;
 }
