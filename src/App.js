@@ -38,10 +38,6 @@ function App() {
         import("./components/ModalSettings/ModalSettings")
     )
 
-    // const AppToChannel = () => {
-    //     setCurrentChat(currentChatFromChild)
-    //     return currentChat
-    // }
 
     const signInWithGoogle = async () => {
         // Retrieve Google provider object

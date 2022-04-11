@@ -76,34 +76,6 @@
     width: 70%;
 }
 
-.sidebar_burger:hover .slice_1 {
-    margin-left: 60%;
-    margin-top: 40%;
-    width: 30%;
-    transform: rotate(45deg);
-    background-color: hsl(0, 0%, 100%);
-}
-
-.sidebar_burger:hover .slice_2 {
-    margin-top: 5%;
-    width: 70%;
-    background-color: hsl(0, 0%, 100%);
-}
-
-.sidebar_burger:hover .slice_3 {
-    margin-top: 5%;
-    margin-left: 60%;
-    width: 30%;
-    transform: rotate(-45deg);
-    background-color: hsl(0, 0%, 100%);
-}
-
-.sidebar_checkbox:checked ~ .sidebar_burger:hover {
-    background-color: hsl(0, 0%, 0%);
-    transform: rotate(180deg);
-    transition: rotate 0s;
-}
-
 .title {
     position: absolute;
     left: min(25%, 7rem);
@@ -175,6 +147,34 @@
 
     .setting_a:hover .setting_icon {
         fill: rgb(210, 215, 224);
+    }
+
+    .sidebar_burger:hover .slice_1 {
+        margin-left: 60%;
+        margin-top: 40%;
+        width: 30%;
+        transform: rotate(45deg);
+        background-color: hsl(0, 0%, 100%);
+    }
+
+    .sidebar_burger:hover .slice_2 {
+        margin-top: 5%;
+        width: 70%;
+        background-color: hsl(0, 0%, 100%);
+    }
+
+    .sidebar_burger:hover .slice_3 {
+        margin-top: 5%;
+        margin-left: 60%;
+        width: 30%;
+        transform: rotate(-45deg);
+        background-color: hsl(0, 0%, 100%);
+    }
+
+    .sidebar_checkbox:checked ~ .sidebar_burger:hover {
+        background-color: hsl(0, 0%, 0%);
+        transform: rotate(180deg);
+        transition: rotate 0s;
     }
 }
 
