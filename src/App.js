@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense, useEffect } from "react"
+import React, { lazy, Suspense } from "react"
 import "./App.css"
 import classes from "./SignUpPage.module.css"
 //UI
