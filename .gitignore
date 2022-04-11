@@ -2,11 +2,7 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
 
-# testing
-/coverage
 
 # production
 /build
@@ -18,6 +14,12 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+#Not done features (or not used hooks)
+src/hooks/useMedia.js
+src/hooks/useLocalStorage.js
+src/hooks/useDarkMode.js
+
+
+
+
+

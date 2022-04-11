@@ -36,40 +36,6 @@ const Channel = ({ user = null }) => {
         textForm.classList.add(classes.text_form_activated)
     }
 
-    // const trackScrolling = () => {
-    //     const listOfMessages = document.querySelector("#list_of_messages")
-    //     const bottom =
-    //         Math.ceil(listOfMessages.innerHeight + listOfMessages.scrollY) >=
-    //         listOfMessages.scrollHeight
-
-    //     if (listOfMessages) {
-    //         console.log("List detected")
-    //     }
-    //     if (bottom) {
-    //         console.log("bottom reached")
-    //     }
-    // }
-
-    // const handleScroll = (e) => {
-    //     const listOfMessages = document.querySelector("#list_of_messages")
-    //     const bottom =
-    //         listOfMessages.getBoundingClientRect().bottom >=
-    //         listOfMessages.scrollHeight
-
-    //     if (bottom) {
-    //         console.log("at the bottom")
-    //     }
-    // }
-    // React.useEffect(() => {
-    //     window.addEventListener("scroll", handleScroll, {
-    //         passive: true,
-    //     })
-
-    //     return () => {
-    //         window.removeEventListener("scroll", handleScroll)
-    //     }
-    // }, [])
-
     const handleScroll = () => {
         console.log("scrolling")
         const bottom =
@@ -114,8 +80,8 @@ const Channel = ({ user = null }) => {
             // Clear input field
             setNewMessage("")
             // Scroll down to the bottom of the list
-            scrollToBottom()
         }
+        scrollToBottom()
     }
 
     return (
@@ -168,6 +134,7 @@ const Channel = ({ user = null }) => {
                     id="send_button"
                     type="submit"
                     disabled={!newMessage}
+                    onClick={handleOnSubmit}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="none" d="M0 0h24v24H0V0z" />
