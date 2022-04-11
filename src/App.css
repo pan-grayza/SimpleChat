@@ -23,8 +23,8 @@ body,
 .screen,
 .suspense,
 .app {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: rgb(58, 64, 73);
     overflow: hidden;
 }
@@ -45,8 +45,8 @@ button {
 }
 
 .main {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
