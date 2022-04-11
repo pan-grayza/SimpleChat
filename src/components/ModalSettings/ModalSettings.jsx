@@ -33,8 +33,8 @@ import { useAuthState } from "../../hooks/useAuthState"
 const ModalSettings = () => {
     const { user, initializing } = useAuthState(firebase.auth())
 
-    const [darkMode, setDarkMode] = useDarkMode()
-    const ThemeIcon = darkMode ? SunIcon : MoonIcon
+    // const [darkMode, setDarkMode] = useDarkMode()
+    // const ThemeIcon = darkMode ? SunIcon : MoonIcon
 
     const HandleClose = () => {
         const modal = document.querySelector("#setting_modal")
