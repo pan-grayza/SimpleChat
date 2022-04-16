@@ -20,7 +20,7 @@
 
 .scroll_down_btn {
     position: absolute;
-    top: calc(100vh - 13rem);
+    top: calc(100% - 10rem);
     left: calc(100vw - 4.65rem);
     padding: 0.2rem 0.2rem 0.2rem 0.25rem;
     width: 2.75rem;
