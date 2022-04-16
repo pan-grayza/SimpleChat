@@ -127,7 +127,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem; /* PC mobile emulation looks diferent from real mobile device(it's a fix) */
+    margin-bottom: 2rem; /* PC mobile emulation looks diferent from real mobile device(it's a fix) */
     width: 8rem;
     height: 3rem;
     background: none;
