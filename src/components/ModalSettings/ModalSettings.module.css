@@ -123,9 +123,11 @@
 }
 
 .signOut_btn {
+    display: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem; /* PC mobile emulation looks diferent from real mobile device(it's a fix) */
     width: 8rem;
     height: 3rem;
     background: none;
@@ -146,6 +148,9 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+    .signOut_btn {
+        margin: 0;
+    }
     .signOut_btn:hover {
         background: rgb(255, 255, 255, 0.1);
     }
