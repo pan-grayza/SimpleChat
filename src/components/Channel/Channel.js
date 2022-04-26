@@ -1,87 +1,54 @@
-import React, { useEffect, useState, useRef } from "react"
-import classes from "./Channel.module.css"
-import firebase from "firebase/compat/app"
-import { useFirestoreQuery } from "../../hooks/useFirestoreQuery"
+import React, { useState, useContext } from 'react'
+import classes from './Channel.module.css'
+import { Context } from '../../index'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
+import 'firebase/compat/firestore'
 // Components
-import Message from "../UI/Message/Message"
+import Message from '../UI/Message/Message'
+import Loader from '../UI/Loader/Loader'
 
-const Channel = ({ user = null }) => {
-    const db = firebase.firestore()
-
-    let messagesRef = db.collection("messages")
-
-    const messages = useFirestoreQuery(
-        messagesRef.orderBy("createdAt", "desc").limit(100)
+const Channel = () => {
+    const { auth, firestore } = useContext(Context)
+    const [user] = useAuthState(auth)
+    const [value, setValue] = useState('')
+    const [messages, loading] = useCollectionData(
+        firestore.collection('messages').orderBy('createdAt')
     )
 
-    const [newMessage, setNewMessage] = useState("")
-
-    const inputRef = useRef()
-
-    const { uid, displayName, photoURL } = user
-
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.focus()
-        }
-    }, [inputRef])
-
-    const handleOnChange = (e) => {
-        setNewMessage(e.target.value)
-    }
-    if (newMessage) {
-        const sendButton = document.querySelector("#send_button")
-        const textForm = document.querySelector("#text_form")
+    if (value) {
+        const sendButton = document.querySelector('#send_button')
+        const textForm = document.querySelector('#text_form')
         sendButton.classList.add(classes.send_button_activated)
         textForm.classList.add(classes.text_form_activated)
     }
 
-    const handleScroll = () => {
-        console.log("scrolling")
-        const bottom =
-            Math.ceil(window.innerHeight + window.scrollY) >=
-            document.documentElement.scrollHeight
-
-        if (bottom) {
-            console.log("at the bottom")
-        }
-    }
-    React.useEffect(() => {
-        window.addEventListener("scroll", handleScroll, {
-            passive: true,
+    const sendMessage = async (e) => {
+        e.preventDefault()
+        firestore.collection('messages').add({
+            uid: user.uid,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+            text: value,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll)
-        }
-    }, [])
+        setValue('')
+        setTimeout(() => scrollToBottom(), 100)
+    }
 
     const scrollToBottom = () => {
-        const listOfMessages = document.querySelector("#list_of_messages")
+        const listOfMessages = document.querySelector('#list_of_messages')
         listOfMessages.scrollTo({
             top: listOfMessages.scrollHeight,
-            behavior: "smooth",
+            behavior: 'smooth',
         })
     }
 
-    const handleOnSubmit = (e) => {
-        e.preventDefault()
-
-        const trimmedMessage = newMessage.trim()
-        if (trimmedMessage) {
-            // Add new message in Firestore
-            messagesRef.add({
-                text: trimmedMessage,
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                uid,
-                displayName,
-                photoURL,
-            })
-            // Clear input field
-            setNewMessage("")
-            // Scroll down to the bottom of the list
-        }
-        scrollToBottom()
+    if (loading) {
+        return <Loader />
     }
 
     return (
@@ -116,15 +83,14 @@ const Channel = ({ user = null }) => {
             </button>
             <div className={classes.text_form_container}>
                 <form
-                    onSubmit={handleOnSubmit}
                     id="text_form"
                     className={classes.text_form}
+                    onSubmit={sendMessage}
                 >
                     <input
-                        ref={inputRef}
                         type="text"
-                        value={newMessage}
-                        onChange={handleOnChange}
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
                         placeholder="Type message here"
                         className={classes.text_input}
                     ></input>
@@ -133,8 +99,8 @@ const Channel = ({ user = null }) => {
                     className={classes.send_button}
                     id="send_button"
                     type="submit"
-                    disabled={!newMessage}
-                    onClick={handleOnSubmit}
+                    disabled={!value}
+                    onClick={sendMessage}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="none" d="M0 0h24v24H0V0z" />

@@ -1,8 +1,11 @@
-import React from "react"
-import classes from "./ModalSettings.module.css"
+import React, { useContext } from 'react'
+import classes from './ModalSettings.module.css'
+import { Context } from '../../index'
 
-import firebase from "firebase/compat/app"
-import { useAuthState } from "../../hooks/useAuthState"
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
+import 'firebase/compat/firestore'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 // const MoonIcon = (props) => (
 //     <svg
@@ -31,23 +34,17 @@ import { useAuthState } from "../../hooks/useAuthState"
 // )
 
 const ModalSettings = () => {
-    const { user, initializing } = useAuthState(firebase.auth())
+    const { auth } = useContext(Context)
+    const [user] = useAuthState(auth)
 
     // const [darkMode, setDarkMode] = useDarkMode()
     // const ThemeIcon = darkMode ? SunIcon : MoonIcon
 
     const HandleClose = () => {
-        const modal = document.querySelector("#setting_modal")
-        modal.classList.remove("opened_modal")
+        const modal = document.querySelector('#setting_modal')
+        modal.classList.remove('opened_modal')
     }
 
-    const signOut = async () => {
-        try {
-            await firebase.auth().signOut()
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
     return (
         <div id="setting_modal" className={classes.modal_container}>
             <div className={classes.modal_window}>
@@ -83,12 +80,14 @@ const ModalSettings = () => {
                         >
                             <path d="M 40.783203 7.2714844 A 2.0002 2.0002 0 0 0 39.386719 7.8867188 L 25.050781 22.222656 L 10.714844 7.8867188 A 2.0002 2.0002 0 0 0 9.2792969 7.2792969 A 2.0002 2.0002 0 0 0 7.8867188 10.714844 L 22.222656 25.050781 L 7.8867188 39.386719 A 2.0002 2.0002 0 1 0 10.714844 42.214844 L 25.050781 27.878906 L 39.386719 42.214844 A 2.0002 2.0002 0 1 0 42.214844 39.386719 L 27.878906 25.050781 L 42.214844 10.714844 A 2.0002 2.0002 0 0 0 40.783203 7.2714844 z" />
                         </svg>
-                        <span style={{ position: "absolute", opacity: "0" }}>
+                        <span style={{ position: 'absolute', opacity: '0' }}>
                             Close
                         </span>
                     </button>
-
-                    <button onClick={signOut} className={classes.signOut_btn}>
+                    <button
+                        onClick={() => auth.signOut()}
+                        className={classes.signOut_btn}
+                    >
                         <p>Sign out</p>
                         <svg
                             className={classes.icon}

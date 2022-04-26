@@ -1,4 +1,4 @@
-.signUp_container {
+.login_container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +14,7 @@
     border-radius: 1rem;
 }
 
-.signUp_content {
+.login_content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,11 +23,11 @@
     width: min(20rem, 100%);
 }
 
-.signUp_text h1 {
+.login_text h1 {
     font-size: 2rem;
 }
 
-.signUp_btn {
+.login_btn {
     display: flex;
     align-items: center;
     justify-content: center;

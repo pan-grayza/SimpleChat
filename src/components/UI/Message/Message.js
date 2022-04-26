@@ -1,22 +1,22 @@
-import React from "react"
-import classes from "./Message.module.css"
-import PropTypes from "prop-types"
-import Moment from "moment"
+import React from 'react'
+import classes from './Message.module.css'
+import PropTypes from 'prop-types'
+import Moment from 'moment'
 
 const formatDate = (date) => {
-    return Moment(date).format("DD.MM.YYYY")
+    return Moment(date).format('DD.MM.YYYY')
 }
 
 const Message = ({
     createdAt = null,
-    text = "",
-    displayName = "",
-    photoURL = "",
+    text = '',
+    displayName = '',
+    photoURL = '',
 }) => {
     if (!text) return null
 
     return (
-        <div className={classes.message}>
+        <div key={createdAt + text + displayName} className={classes.message}>
             {photoURL ? (
                 <img
                     src={photoURL}
